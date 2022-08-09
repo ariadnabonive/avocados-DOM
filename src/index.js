@@ -20,7 +20,7 @@ window
 .then((responseAPI) => responseAPI.json())
 //JSON -> Data -> Renderizar info en el browser
 .then(responseJSON => {
-    
+
     const totalItems =[];
 
     responseJSON.data.forEach((item) => {
@@ -33,7 +33,7 @@ window
         
         //crear titulo
         const title = document.createElement('h2')
-        title.className = "text-lg font-semibold"
+        title.className = "text-lg"
         title.textContent = item.name
         
         
@@ -45,13 +45,13 @@ window
 
         //// Creamos un contenedor para el título y el precio
         const priceAndTitle = document.createElement('div')
-        priceAndTitle.className = "text-center md:text-left"
+        priceAndTitle.className = "text-center"
         priceAndTitle.append(title, price)
         
 
         //Creamos una card para imagen + precio & titulo
          const card = document.createElement('div')
-         card.className = "md:flex bg-white rounded-lg p-6 hover:bg-gray-300"
+         card.className = "flex w-64 shadow-lg shadow-blue-500/50 rounded-md px-4 py-8 cursor-pointer"
          card.append(image , priceAndTitle)
         
         // Metemos todo dentro del contenedor principal
@@ -60,5 +60,7 @@ window
      
         totalItems.push(container);
     });
-    appNode.append(...totalItems)
+    appNode.append(...totalItems);
+    appNode.className="flex flex-wrap justify-center gap-9 my-8";
+
 });
