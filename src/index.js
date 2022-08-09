@@ -2,15 +2,16 @@ const urlBase = "https://platzi-avo.vercel.app";
 
 const appNode = document.querySelector('#app');
 
-//Utilizamos una API para cambiar el formato de precios
-const formatPrice= (price) => {  
-    const newPrice = new window.Intl.NumberFormat('es-EN', {
+//API Internacionalizacion para el formato de la moneda
+const formatPrice = (price) => {  
+    const newPrice = new window.Intl.NumberFormat('en-EN', {
         style:'currency',
         currency: 'USD'
     }).format(price)
 
     return newPrice;
 };
+
 //web api fetch
 //conectarnos al servidor
 window
@@ -19,17 +20,17 @@ window
 .then((responseAPI) => responseAPI.json())
 //JSON -> Data -> Renderizar info en el browser
 .then(responseJSON => {
+    
     const totalItems =[];
 
     responseJSON.data.forEach((item) => {
         //crear imagen
         const image = document.createElement('img')
         //css de la imagen
-        image.className="w-1/4 h-1/4 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6"
+        image.className="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6"
         //URL de la imagen
         image.src = `${urlBase}${item.image}`
         
-
         //crear titulo
         const title = document.createElement('h2')
         title.className = "text-lg font-semibold"
