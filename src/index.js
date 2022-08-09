@@ -25,7 +25,7 @@ window
         //crear imagen
         const image = document.createElement('img')
         //css de la imagen
-        image.className="w-1/4 h-1/4"
+        image.className="w-1/4 h-1/4 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6"
         //URL de la imagen
         image.src = `${urlBase}${item.image}`
         
@@ -44,13 +44,13 @@ window
 
         //// Creamos un contenedor para el título y el precio
         const priceAndTitle = document.createElement('div')
-        priceAndTitle.className = "text-center"
-        priceAndTitle.appendChild(title)
-        priceAndTitle.appendChild(price)
+        priceAndTitle.className = "text-center md:text-left"
+        priceAndTitle.append(title, price)
+        
 
         //Creamos una card para imagen + precio & titulo
          const card = document.createElement('div')
-         card.className = "md:flex bg-white"
+         card.className = "md:flex bg-white rounded-lg p-6 hover:bg-gray-300"
          card.append(image , priceAndTitle)
         
         // Metemos todo dentro del contenedor principal
